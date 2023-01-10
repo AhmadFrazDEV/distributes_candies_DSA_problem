@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int distributeCandies(vector<int>& candyType) {
+        int size = candyType.size();
+        if(size % 2 == 0)
+        {
+            if(sameElements(candyType)) return 1;
+            return size / 2;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+    
+    bool sameElements(vector<int> &candyType)
+    {
+        int a = candyType[0];
+        int count = 1;
+        for (int i = 1; i < candyType.size(); i++)
+        {
+            if(a == candyType[i])
+            {
+                a = candyType[i];
+                count++;
+            }
+        }
+        return (count == candyType.size())? true : false;
+        
+
+    }
+};
